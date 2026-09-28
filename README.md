@@ -52,4 +52,5 @@ C++ tests include their solution source and define their own `main()`. The runne
 - [146] LRU Cache (Medium)
 - [3014] Minimum Number of Pushes to Type Word I (Easy)
 - [1614] Maximum Nesting Depth of the Parentheses (Easy)
+- [1807] Evaluate the Bracket Pairs of a String (Medium) - Has Tests
 <!-- END GENERATED PROBLEM LIST -->

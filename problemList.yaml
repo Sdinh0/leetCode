@@ -123,3 +123,9 @@ problems:
     title: Maximum Nesting Depth of the Parentheses
     difficulty: Easy
     solution: easy/1614/maxDepth.cpp
+  - id: 1807
+    title: Evaluate the Bracket Pairs of a String
+    difficulty: Medium
+    solution: medium/1807/bracket_pairs_of_string.cpp
+    tests:
+      - medium/1807/bracket_pairs_of_string_test.cpp
