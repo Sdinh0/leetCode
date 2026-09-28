@@ -13,15 +13,13 @@ problemList.yaml
 
 `problemList.yaml` is the catalog of problems. Each entry records the problem ID, title, difficulty, solution path, and test path when a test is available. Not every solution currently has a test.
 
-## Running a C++ Test
+## Running Tests
 
-Tests are standalone C++ programs; they include their solution source and define their own `main()`. With `g++` available on your `PATH`, build and run a test from the repository root, for example:
+The test catalog is in `problemList.yaml`. Each problem can list one or more test files under `tests`. Run the configured tests from the repository root with Python 3, PyYAML, and `g++` on your `PATH`:
 
 ```sh
-g++ -std=c++17 medium/3/longestSubstring_test.cpp -o medium/3/longestSubstring_test
-./medium/3/longestSubstring_test
+python -m pip install PyYAML
+python scripts/run-test.py
 ```
 
-On Windows, run the generated executable as `medium\3\longestSubstring_test.exe`. The VS Code build task also has a dedicated target for this example test.
-
-Python solutions can be run with Python 3; there is currently no shared test runner or project-wide dependency configuration.
+C++ tests include their solution source and define their own `main()`. The runner compiles them as C++17, runs each test, and stores temporary executables outside the repository. Python test files are run with the active Python interpreter.

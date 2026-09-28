@@ -3,17 +3,20 @@ problems:
     title: Two Sum
     difficulty: Easy
     solution: easy/1/twoSum.cpp
-    tests: easy/1/twoSum_test.cpp
+    tests:
+      - easy/1/twoSum_test.cpp
   - id: 2
     title: Add Two Numbers
     difficulty: Medium
     solution: medium/2/linkedListSum.cpp
-    tests: medium/2/linkedListSum_test.cpp
+    tests:
+      - medium/2/linkedListSum_test.cpp
   - id: 3
     title: Longest Substring Without Repeating Characters
     difficulty: Medium
     solution: medium/3/longestSubstring.cpp
-    tests: medium/3/longestSubstring_test.cpp
+    tests:
+      - medium/3/longestSubstring_test.cpp
   - id: 4
     title: Median of Two Sorted Arrays
     difficulty: Hard
@@ -30,12 +33,14 @@ problems:
     title: Reverse Integer
     difficulty: Medium
     solution: medium/7/reverseInteger.cpp
-    tests: medium/7/reverseInteger_test.cpp
+    tests:
+      - medium/7/reverseInteger_test.cpp
   - id: 8
     title: String to Integer (atoi)
     difficulty: Medium
     solution: medium/8/myStoi.cpp
-    tests: medium/8/myStoi_test.cpp
+    tests:
+      - medium/8/myStoi_test.cpp
   - id: 9
     title: Palindrome Number
     difficulty: Easy
@@ -44,12 +49,14 @@ problems:
     title: Regular Expression Matching
     difficulty: Hard
     solution: hard/10/Regular_Expression_Matching.cpp
-    tests: hard/10/Regular_Expression_Matching_test.cpp
+    tests:
+      - hard/10/Regular_Expression_Matching_test.cpp
   - id: 11
     title: Container With Most Water
     difficulty: Medium
     solution: medium/11/maxWaterContainer.cpp
-    tests: medium/11/maxWaterContainer_test.cpp
+    tests:
+      - medium/11/maxWaterContainer_test.cpp
   - id: 12
     title: Integer to Roman
     difficulty: Medium
@@ -86,6 +93,8 @@ problems:
     title: Stone Game V
     difficulty: Hard
     solution: hard/1563/stoneGameV.cpp
+    tests:
+      - hard/1563/stoneGameV_test.cpp
   - id: 352
     title: Data Stream as Disjoint Intervals
     difficulty: Hard

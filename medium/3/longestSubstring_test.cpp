@@ -2,10 +2,11 @@
 #include <iostream>
 #include "longestSubstring.cpp"
 
-void substringTest(const std::string input, const int result, int testNumber)
+bool substringTest(const std::string input, const int result, int testNumber)
 {
     Solution solution;
-    if (result == solution.lengthOfLongestSubstring(input))
+    bool passed = result == solution.lengthOfLongestSubstring(input);
+    if (passed)
     {
         std::cout << "PASSED" << std::endl; 
     }
@@ -13,12 +14,14 @@ void substringTest(const std::string input, const int result, int testNumber)
     {
         std::cout << "FAILED: " << testNumber << std::endl;
     }
+    return passed;
 }
 
 int main()
 {
-    substringTest("abcabcbb", 3, 0);
-    substringTest("bbbbb", 1, 1);
-    substringTest("pwwkew", 3, 2);
-    return 0;
+    bool allPassed = true;
+    allPassed &= substringTest("abcabcbb", 3, 0);
+    allPassed &= substringTest("bbbbb", 1, 1);
+    allPassed &= substringTest("pwwkew", 3, 2);
+    return allPassed ? 0 : 1;
 }

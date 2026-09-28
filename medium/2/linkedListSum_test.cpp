@@ -167,7 +167,7 @@ void deleteList(ListNode* head) {
 
 // REWRITING THE TEST RUNNER TO USE SAFE MEMORY MANAGEMENT
 
-void runListTestSafe(ListNode* l1_head, ListNode* l2_head, const std::vector<int>& expectedDigits, int testNumber) {
+bool runListTestSafe(ListNode* l1_head, ListNode* l2_head, const std::vector<int>& expectedDigits, int testNumber) {
     std::cout << "--- Running Test " << testNumber << " ---" << std::endl;
 
     // 1. Create deep copies of inputs for testing, as the function consumes them.
@@ -194,37 +194,39 @@ void runListTestSafe(ListNode* l1_head, ListNode* l2_head, const std::vector<int
     deleteList(l2_copy);
     deleteList(resultHead);
     deleteList(expectedHead);
+    return passed;
 }
 
 
 int main() {
+    bool allPassed = true;
     // Test Case 1: Equal length, carry at end (99 + 99 = 198)
     std::cout << "========================================\n";
     std::cout << "Test Case 1: 99 + 99 = 198" << std::endl;
     // l1 = 9->9 (represents 99), l2 = 9->9 (represents 99). Expected result digits (reversed) = {8, 9, 1}
-    runListTestSafe(buildList({9, 9}), buildList({9, 9}), {8, 9, 1}, 1);
+    allPassed &= runListTestSafe(buildList({9, 9}), buildList({9, 9}), {8, 9, 1}, 1);
 
     // Test Case 2: Unequal length, no final carry (342 + 465 = 807)
     std::cout << "\n========================================\n";
     std::cout << "Test Case 2: 342 + 465 = 807" << std::endl;
     // l1 = 2->4->3, l2 = 5->6->4. Expected result digits (reversed) = {7, 0, 8}
-    runListTestSafe(buildList({2, 4, 3}), buildList({5, 6, 4}), {7, 0, 8}, 2);
+    allPassed &= runListTestSafe(buildList({2, 4, 3}), buildList({5, 6, 4}), {7, 0, 8}, 2);
 
     // Test Case 3: Different lengths, carry at end (9 + 1 = 10)
     std::cout << "\n========================================\n";
     std::cout << "Test Case 3: 9 + 1 = 10" << std::endl;
     // l1 = 9, l2 = 1. Expected result digits (reversed) = {0, 1}
-    runListTestSafe(buildList({9}), buildList({1}), {0, 1}, 3);
+    allPassed &= runListTestSafe(buildList({9}), buildList({1}), {0, 1}, 3);
 
     // Test Case 4: Zero inputs (0 + 0 = 0)
     std::cout << "\n========================================\n";
     std::cout << "Test Case 4: 0 + 0 = 0" << std::endl;
-    runListTestSafe(buildList({0}), buildList({0}), {0}, 4);
+    allPassed &= runListTestSafe(buildList({0}), buildList({0}), {0}, 4);
 
     // Test Case 5: One input is zero (123 + 0 = 123)
     std::cout << "\n========================================\n";
     std::cout << "Test Case 5: 123 + 0 = 123" << std::endl;
-    runListTestSafe(buildList({3, 2, 1}), buildList({0}), {3, 2, 1}, 5);
+    allPassed &= runListTestSafe(buildList({3, 2, 1}), buildList({0}), {3, 2, 1}, 5);
 
-    return 0;
+    return allPassed ? 0 : 1;
 }
