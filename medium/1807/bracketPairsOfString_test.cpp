@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "bracket_pairs_of_string.cpp"
+#include "bracketPairsOfString.cpp"
 
 bool runTest(
     const std::string& s,

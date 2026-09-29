@@ -1,6 +1,6 @@
 # LeetCode Solutions
 
-A collection of LeetCode solutions written in C++ and Python. Problems are grouped by difficulty, with each solution stored in a directory named for its LeetCode problem ID.
+A collection of LeetCode solutions written in C++, Python, and TypeScript. Problems are grouped by difficulty, with each solution stored in a directory named for its LeetCode problem ID.
 
 ## Repository Layout
 
@@ -15,14 +15,16 @@ problemList.yaml
 
 ## Running Tests
 
-The test catalog is in `problemList.yaml`. Each problem can list one or more test files under `tests`. Run the configured tests from the repository root with Python 3, PyYAML, and `g++` on your `PATH`:
+The test catalog is in `problemList.yaml`. Each problem can list one or more test files under `tests`. Run the configured tests from the repository root with Python 3, PyYAML, Node.js 20.6 or later, npm, and `g++` on your `PATH`:
 
 ```sh
+npm install
 python -m pip install PyYAML
 python scripts/run-test.py
+npm exec -- tsc --noEmit
 ```
 
-C++ tests include their solution source and define their own `main()`. The runner compiles them as C++17, runs each test, and stores temporary executables outside the repository. Python test files are run with the active Python interpreter.
+C++ tests include their solution source and define their own `main()`. The runner compiles them as C++17, runs each test, and stores temporary executables outside the repository. Python tests run with the active Python interpreter. TypeScript tests run with Node.js and the locally installed `tsx` loader. Run `npm install` after cloning to install the TypeScript tooling.
 
 <!-- BEGIN GENERATED PROBLEM LIST -->
 - [1] Two Sum (Easy) - Has Tests
@@ -53,4 +55,5 @@ C++ tests include their solution source and define their own `main()`. The runne
 - [3014] Minimum Number of Pushes to Type Word I (Easy)
 - [1614] Maximum Nesting Depth of the Parentheses (Easy)
 - [1807] Evaluate the Bracket Pairs of a String (Medium) - Has Tests
+- [20] Valid Parentheses (Easy) - Has Tests
 <!-- END GENERATED PROBLEM LIST -->

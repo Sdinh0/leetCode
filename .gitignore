@@ -10,6 +10,7 @@
 *.lib
 build/
 cmake-build-*/
+node_modules/
 
 # Python-generated files and local environments
 __pycache__/
