@@ -135,3 +135,15 @@ problems:
     solution: easy/20/validParentheses.ts
     tests:
       - easy/20/validParentheses_test.ts
+  - id: 19
+    title: Remove Nth Node From End of List
+    difficulty: Medium
+    solution: medium/19/removeNthFromEnd.ts
+    tests:
+      - medium/19/removeNthFromEnd_test.ts
+  - id: 21
+    title: Merge Two Sorted Lists
+    difficulty: Easy
+    solution: easy/21/mergeTwoLists.ts
+    tests:
+      - easy/21/mergeTwoLists_test.ts

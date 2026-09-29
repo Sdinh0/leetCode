@@ -32,17 +32,32 @@ def main():
         return 1
 
     # generate the new problem list
-    new_problem_list = []
+    problems_by_difficulty = {"Easy": [], "Medium": [], "Hard": []}
+
     for problem in problem_list["problems"]:
         if not isinstance(problem, dict):
             print("Invalid problem entry: expected a mapping.", file=sys.stderr)
             continue
 
+        difficulty = problem.get("difficulty")
+        if difficulty not in problems_by_difficulty:
+            continue
+
         problem_id = problem.get("id", "unknown")
-        problem_title = problem.get("title", "Unknown Title")
-        problem_difficulty = problem.get("difficulty", "Unknown Difficulty")
-        problem_has_tests = "tests" in problem and isinstance(problem["tests"], list) and len(problem["tests"]) > 0
-        new_problem_list.append(f"- [{problem_id}] {problem_title} ({problem_difficulty}){' - Has Tests' if problem_has_tests else ''}")
+        title = problem.get("title", "Unknown Title")
+        has_tests = isinstance(problem.get("tests"), list) and bool(problem["tests"])
+
+        line = f"- [{problem_id}] {title} ({difficulty})"
+        if has_tests:
+            line += " - Has Tests"
+
+        problems_by_difficulty[difficulty].append((int(problem_id), line))
+
+    new_problem_list = []
+    for difficulty, problems in problems_by_difficulty.items():
+        problems.sort(key=lambda item: item[0])
+        new_problem_list.append(f"### {difficulty}")
+        new_problem_list.extend(line for _, line in problems)
 
     # replace the old problem list with the new one
     content_start = begin_index + len(begin_marker)
